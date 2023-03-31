@@ -1,6 +1,7 @@
 package com.kcn.util;
 
 import com.kcn.blocks.ModBlock;
+import com.kcn.screen.AChestScreen;
 import com.kcn.screen.BagScreen;
 import com.kcn.screen.HealthScreen;
 import com.kcn.screen.WaterPurifierScreen;
@@ -32,6 +33,7 @@ public class ClientData {
             ScreenRegistry.register(ModScreenHandler.WATER_PURIFIER_SCREEN_HANDLER, WaterPurifierScreen::new);
             ScreenRegistry.register(ModScreenHandler.HEALTH_SCREEN_HANDLER, HealthScreen::new);
             ScreenRegistry.register(ModScreenHandler.BAG_SCREEN_HANDLER, BagScreen::new);
+            ScreenRegistry.register(ModScreenHandler.A_CHEST_SCREEN_HANDLER, AChestScreen::new);
         }
     }
 

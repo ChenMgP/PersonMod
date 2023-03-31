@@ -1,7 +1,9 @@
 package com.kcn;
 
+import com.kcn.commands.ChestFoundCommand;
 import com.kcn.commands.IdCardCommand;
 import com.kcn.commands.NbtCommand;
+import com.kcn.commands.UUIDCommand;
 import com.kcn.networking.ModPacket;
 import com.kcn.util.ClientData;
 import net.fabricmc.api.ClientModInitializer;
@@ -35,6 +37,8 @@ public class Client implements ClientModInitializer {
                 (dispatcher, dedicated) -> {
                     NbtCommand.register(dispatcher);
                     IdCardCommand.register(dispatcher);
+                    ChestFoundCommand.register(dispatcher);
+                    UUIDCommand.register(dispatcher);
                 }
         );
         ClientTickEvents.END_CLIENT_TICK.register(
