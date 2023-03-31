@@ -1,0 +1,27 @@
+{
+    "criteria": {
+        "get": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:oak_log",
+                            "minecraft:birch_log",
+                            "minecraft:spruce_log",
+                            "minecraft:acacia_log",
+                            "minecraft:dark_oak_log",
+                            "minecraft:jungle_log"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        ["get"]
+    ],
+    "rewards": {
+        "function": "kcn:give_crafting_cistern_scroll"
+    }
+}

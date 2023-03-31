@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PS "
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:paper"
+        },
+        "S": {
+            "item": "minecraft:stone"
+        }
+    },
+    "result": {
+        "item": "kcn:delete_scroll"
+    }
+}

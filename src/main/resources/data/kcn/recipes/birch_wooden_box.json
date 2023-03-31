@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " W ",
+        "WwW",
+        " W "
+    ],
+    "key": {
+        "w": {
+            "item": "kcn:birch_wooden_bas_wrapped_with_wire"
+        },
+        "W": {
+            "item": "kcn:birch_wooden_side"
+        }
+    },
+    "result": {
+        "item": "kcn:birch_wooden_box"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "RIG",
+        "RMG",
+        "RIg"
+    ],
+    "key": {
+        "G": {
+            "item": "minecraft:glass"
+        },
+        "M": {
+            "item": "kcn:machine_frame"
+        },
+        "g": {
+            "item": "minecraft:gold_block"
+        },
+        "R": {
+            "item": "minecraft:redstone"
+        },
+        "I": {
+            "item": "kcn:iron_sheet"
+        }
+    },
+    "result": {
+        "item": "kcn:water_purifier"
+    }
+}

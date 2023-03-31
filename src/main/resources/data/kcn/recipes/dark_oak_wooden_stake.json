@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:dark_oak_log"
+    },
+    "result": "kcn:dark_oak_wooden_stake",
+    "count": 2
+}

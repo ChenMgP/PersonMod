@@ -1,0 +1,1 @@
+give @s kcn:crafting_cistern_scroll

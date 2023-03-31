@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "kcn:block/machine_frame"
+        }
+    }
+}

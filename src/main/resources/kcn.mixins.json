@@ -1,0 +1,24 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "com.kcn.mixin",
+    "compatibilityLevel": "JAVA_16",
+    "mixins": [
+        "BrewingMixin",
+        "CakeMixin",
+        "DandelionMixin",
+        "EntityMixin",
+        "FoodMixin",
+        "ItemMixin",
+        "PlayerEntityMixin",
+        "PotionItemMixin",
+        "ServerPlayerMixin"
+    ],
+    "client": [
+        "PlayerEntityMixin",
+        "PotionItemMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+  }
+}

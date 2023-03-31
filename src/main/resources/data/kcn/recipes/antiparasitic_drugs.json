@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " D ",
+        "DCD",
+        " D "
+    ],
+    "key": {
+        "D": {
+            "item": "minecraft:dandelion"
+        },
+        "C": {
+            "item": "minecraft:cactus"
+        }
+    },
+    "result": {
+        "item": "kcn:antiparasitic_drugs",
+        "count": 4
+    }
+}

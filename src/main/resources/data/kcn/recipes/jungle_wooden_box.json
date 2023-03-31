@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " W ",
+        "WwW",
+        " W "
+    ],
+    "key": {
+        "w": {
+            "item": "kcn:jungle_wooden_bas_wrapped_with_wire"
+        },
+        "W": {
+            "item": "kcn:jungle_wooden_side"
+        }
+    },
+    "result": {
+        "item": "kcn:jungle_wooden_box"
+    }
+}

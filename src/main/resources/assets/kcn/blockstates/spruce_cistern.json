@@ -1,0 +1,22 @@
+{
+    "variants": {
+        "water=0": {
+            "model": "kcn:block/spruce_cistern_water0"
+        },
+        "water=1": {
+            "model": "kcn:block/spruce_cistern_water1"
+        },
+        "water=2": {
+            "model": "kcn:block/spruce_cistern_water2"
+        },
+        "water=3": {
+            "model": "kcn:block/spruce_cistern_water3"
+        },
+        "water=4": {
+            "model": "kcn:block/spruce_cistern_water4"
+        },
+        "water=5": {
+            "model": "kcn:block/spruce_cistern_water5"
+        }
+    }
+}

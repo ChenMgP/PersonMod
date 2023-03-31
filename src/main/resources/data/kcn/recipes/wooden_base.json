@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:oak_planks"
+    },
+    "result": "kcn:oak_wooden_base",
+    "count": 3
+}

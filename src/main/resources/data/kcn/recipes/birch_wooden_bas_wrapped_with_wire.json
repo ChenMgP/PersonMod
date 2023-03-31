@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "W",
+        "w"
+    ],
+    "key": {
+        "W": {
+            "item": "minecraft:cobweb"
+        },
+        "w": {
+            "item": "kcn:birch_wooden_base"
+        }
+    },
+    "result": {
+        "item": "kcn:birch_wooden_bas_wrapped_with_wire"
+    }
+}

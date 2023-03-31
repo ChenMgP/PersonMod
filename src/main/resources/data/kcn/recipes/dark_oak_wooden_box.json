@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " W ",
+        "WwW",
+        " W "
+    ],
+    "key": {
+        "w": {
+            "item": "kcn:dark_oak_wooden_bas_wrapped_with_wire"
+        },
+        "W": {
+            "item": "kcn:dark_oak_wooden_side"
+        }
+    },
+    "result": {
+        "item": "kcn:dark_oak_wooden_box"
+    }
+}

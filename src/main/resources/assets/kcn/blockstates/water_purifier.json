@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=east": {
+            "model": "kcn:block/water_purifier",
+            "y": 90
+        },
+        "facing=north": {
+            "model": "kcn:block/water_purifier"
+        },
+        "facing=south": {
+            "model": "kcn:block/water_purifier",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "kcn:block/water_purifier",
+            "y": 270
+        }
+    }
+}
