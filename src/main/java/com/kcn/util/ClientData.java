@@ -1,10 +1,7 @@
 package com.kcn.util;
 
 import com.kcn.blocks.ModBlock;
-import com.kcn.screen.AChestScreen;
-import com.kcn.screen.BagScreen;
-import com.kcn.screen.HealthScreen;
-import com.kcn.screen.WaterPurifierScreen;
+import com.kcn.screen.*;
 import com.kcn.screen.handler.ModScreenHandler;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.impl.blockrenderlayer.BlockRenderLayerMapImpl;
@@ -33,7 +30,8 @@ public class ClientData {
             ScreenRegistry.register(ModScreenHandler.WATER_PURIFIER_SCREEN_HANDLER, WaterPurifierScreen::new);
             ScreenRegistry.register(ModScreenHandler.HEALTH_SCREEN_HANDLER, HealthScreen::new);
             ScreenRegistry.register(ModScreenHandler.BAG_SCREEN_HANDLER, BagScreen::new);
-            ScreenRegistry.register(ModScreenHandler.A_CHEST_SCREEN_HANDLER, AChestScreen::new);
+            ScreenRegistry.register(ModScreenHandler.CHEST_SCREEN_HANDLER, ChestScreen::new);
+            ScreenRegistry.register(ModScreenHandler.OPEN_CHEST_HANDLER, OpenChestScreen::new);
         }
     }
 
@@ -73,6 +71,16 @@ public class ClientData {
             BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.DARK_OAK_CISTERN_2, RenderLayer.getTranslucent());
             BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.DARK_OAK_CISTERN_3, RenderLayer.getTranslucent());
             BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.DARK_OAK_CISTERN_4, RenderLayer.getTranslucent());
+            BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.A_CHEST, RenderLayer.getTranslucent());
+            BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.B_CHEST, RenderLayer.getTranslucent());
+            BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.C_CHEST, RenderLayer.getTranslucent());
+            BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.D_CHEST, RenderLayer.getTranslucent());
+            BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.E_CHEST, RenderLayer.getTranslucent());
+            BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.A_OPEN_CHEST, RenderLayer.getTranslucent());
+            BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.B_OPEN_CHEST, RenderLayer.getTranslucent());
+            BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.C_OPEN_CHEST, RenderLayer.getTranslucent());
+            BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.D_OPEN_CHEST, RenderLayer.getTranslucent());
+            BlockRenderLayerMapImpl.INSTANCE.putBlock(ModBlock.E_OPEN_CHEST, RenderLayer.getTranslucent());
         }
     }
 

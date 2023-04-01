@@ -2,7 +2,9 @@ package com.kcn.blocks.entities;
 
 import com.kcn.blocks.ModBlock;
 import com.kcn.blocks.entities.chest.*;
+import com.kcn.blocks.entities.open_chest.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -21,9 +23,19 @@ public class ModBlockEntity {
     public static BlockEntityType<CChestEntity> C_CHEST_BLOCK_ENTITY;
     public static BlockEntityType<DChestEntity> D_CHEST_BLOCK_ENTITY;
     public static BlockEntityType<EChestEntity> E_CHEST_BLOCK_ENTITY;
+    public static BlockEntityType<AOpenChestEntity> A_OPEN_CHEST_ENTITY;
+    public static BlockEntityType<BOpenChestEntity> B_OPEN_CHEST_ENTITY;
+    public static BlockEntityType<COpenChestEntity> C_OPEN_CHEST_ENTITY;
+    public static BlockEntityType<DOpenChestEntity> D_OPEN_CHEST_ENTITY;
+    public static BlockEntityType<EOpenChestEntity> E_OPEN_CHEST_ENTITY;
 
 
     public static void init() {
+        A_OPEN_CHEST_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("kcn", "a_open_chest"), FabricBlockEntityTypeBuilder.create(AOpenChestEntity::new, ModBlock.A_OPEN_CHEST).build());
+        B_OPEN_CHEST_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("kcn", "b_open_chest"), FabricBlockEntityTypeBuilder.create(BOpenChestEntity::new, ModBlock.B_OPEN_CHEST).build());
+        C_OPEN_CHEST_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("kcn", "c_open_chest"), FabricBlockEntityTypeBuilder.create(COpenChestEntity::new, ModBlock.C_OPEN_CHEST).build());
+        D_OPEN_CHEST_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("kcn", "d_open_chest"), FabricBlockEntityTypeBuilder.create(DOpenChestEntity::new, ModBlock.D_OPEN_CHEST).build());
+        E_OPEN_CHEST_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("kcn", "e_open_chest"), FabricBlockEntityTypeBuilder.create(EOpenChestEntity::new, ModBlock.E_OPEN_CHEST).build());
         A_CHEST_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("kcn", "a_chest"), FabricBlockEntityTypeBuilder.create(AChestEntity::new, ModBlock.A_CHEST).build());
         B_CHEST_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("kcn", "b_chest"), FabricBlockEntityTypeBuilder.create(BChestEntity::new, ModBlock.B_CHEST).build());
         C_CHEST_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("kcn", "c_chest"), FabricBlockEntityTypeBuilder.create(CChestEntity::new, ModBlock.C_CHEST).build());

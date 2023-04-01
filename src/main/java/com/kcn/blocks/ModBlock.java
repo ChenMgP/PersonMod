@@ -26,6 +26,7 @@ import com.kcn.blocks.cistern.sqruce.SpruceCistern1;
 import com.kcn.blocks.cistern.sqruce.SpruceCistern2;
 import com.kcn.blocks.cistern.sqruce.SpruceCistern3;
 import com.kcn.blocks.cistern.sqruce.SpruceCistern4;
+import com.kcn.blocks.open_chest.*;
 import com.kcn.items.ModItem;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
@@ -71,11 +72,16 @@ public class ModBlock {
     public static final Block ACACIA_CISTERN = ModBlock.register("acacia_cistern", new AcaciaCistern(AbstractBlock.Settings.of(Material.WOOD).nonOpaque().strength(1f)));
     public static final Block SPRUCE_CISTERN = ModBlock.register("spruce_cistern", new SpruceCistern(AbstractBlock.Settings.of(Material.WOOD).nonOpaque().strength(1f)));
     public static final Block DARK_OAK_CISTERN = ModBlock.register("dark_oak_cistern", new DarkOakCistern(AbstractBlock.Settings.of(Material.WOOD).nonOpaque().strength(1f)));
-    public static final Block A_CHEST = ModBlock.registerHiddenBlock("a_chest", new AChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never)));
-    public static final Block B_CHEST = ModBlock.registerHiddenBlock("b_chest", new BChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never)));
-    public static final Block C_CHEST = ModBlock.registerHiddenBlock("c_chest", new CChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never)));
-    public static final Block D_CHEST = ModBlock.registerHiddenBlock("d_chest", new DChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never)));
-    public static final Block E_CHEST = ModBlock.registerHiddenBlock("e_chest", new EChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never)));
+    public static final Block A_CHEST = ModBlock.registerHiddenBlock("a_chest", new AChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never).nonOpaque()));
+    public static final Block B_CHEST = ModBlock.registerHiddenBlock("b_chest", new BChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never).nonOpaque()));
+    public static final Block C_CHEST = ModBlock.registerHiddenBlock("c_chest", new CChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never).nonOpaque()));
+    public static final Block D_CHEST = ModBlock.registerHiddenBlock("d_chest", new DChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never).nonOpaque()));
+    public static final Block E_CHEST = ModBlock.registerHiddenBlock("e_chest", new EChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never).nonOpaque()));
+    public static final Block A_OPEN_CHEST = ModBlock.registerHiddenBlock("a_open_chest", new AOpenChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never).nonOpaque()));
+    public static final Block B_OPEN_CHEST = ModBlock.registerHiddenBlock("b_open_chest", new BOpenChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never).nonOpaque()));
+    public static final Block C_OPEN_CHEST = ModBlock.registerHiddenBlock("c_open_chest", new COpenChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never).nonOpaque()));
+    public static final Block D_OPEN_CHEST = ModBlock.registerHiddenBlock("d_open_chest", new DOpenChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never).nonOpaque()));
+    public static final Block E_OPEN_CHEST = ModBlock.registerHiddenBlock("e_open_chest", new EOpenChest(AbstractBlock.Settings.of(Material.METAL).strength(-1.0f, 3600000.0f).allowsSpawning(ModBlock::never).nonOpaque()));
 
     public static void block() {
     }

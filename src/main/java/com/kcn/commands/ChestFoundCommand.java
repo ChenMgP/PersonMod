@@ -1,10 +1,11 @@
 package com.kcn.commands;
 
 import com.kcn.blocks.ModBlock;
-import com.kcn.blocks.entities.chest.AChestEntity;
+import com.kcn.blocks.entities.chest.*;
 import com.kcn.util.ChestData;
 import com.kcn.util.IChestData;
 import com.mojang.brigadier.CommandDispatcher;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -55,13 +56,60 @@ public class ChestFoundCommand {
                         j = random.nextInt(-60, y);
                         k = random.nextInt(z * -75, z * 75);
                     } else {
-                        world.setBlockState(new BlockPos(i, j, k), ModBlock.A_CHEST.getDefaultState());
-                        AChestEntity blockEntity = (AChestEntity) world.getBlockEntity(new BlockPos(i, j, k));
-                        assert blockEntity != null;
-                        blockEntity.setOwner(player.getUuidAsString());
-                        ChestData.writePlayerNbt(((IChestData) serverPlayer), i, j, k);
-                        serverPlayer.sendMessage(new LiteralText("最新的宝箱位置已确定").formatted(Formatting.RED), false);
-                        ChestData.setSpawnChest(((IChestData) serverPlayer), true);
+                        Random r = new Random();
+                        int v = r.nextInt(1, 6);
+                        switch (v) {
+                            case 1 -> {
+                                world.setBlockState(new BlockPos(i, j, k), ModBlock.A_CHEST.getDefaultState());
+                                AChestEntity blockEntity = (AChestEntity) world.getBlockEntity(new BlockPos(i, j, k));
+                                assert blockEntity != null;
+                                blockEntity.setOwner(player.getUuidAsString());
+                                ChestData.writePlayerNbt(((IChestData) serverPlayer), i, j, k);
+                                serverPlayer.sendMessage(new LiteralText("最新的宝箱位置已确定").formatted(Formatting.RED), false);
+                                ChestData.setSpawnChest(((IChestData) serverPlayer), true);
+                                return 0;
+                            }
+                            case 2 -> {
+                                world.setBlockState(new BlockPos(i, j, k), ModBlock.B_CHEST.getDefaultState());
+                                BChestEntity blockEntity = (BChestEntity) world.getBlockEntity(new BlockPos(i, j, k));
+                                assert blockEntity != null;
+                                blockEntity.setOwner(player.getUuidAsString());
+                                ChestData.writePlayerNbt(((IChestData) serverPlayer), i, j, k);
+                                serverPlayer.sendMessage(new LiteralText("最新的宝箱位置已确定").formatted(Formatting.RED), false);
+                                ChestData.setSpawnChest(((IChestData) serverPlayer), true);
+                                return 0;
+                            }
+                            case 3 -> {
+                                world.setBlockState(new BlockPos(i, j, k), ModBlock.C_CHEST.getDefaultState());
+                                CChestEntity blockEntity = (CChestEntity) world.getBlockEntity(new BlockPos(i, j, k));
+                                assert blockEntity != null;
+                                blockEntity.setOwner(player.getUuidAsString());
+                                ChestData.writePlayerNbt(((IChestData) serverPlayer), i, j, k);
+                                serverPlayer.sendMessage(new LiteralText("最新的宝箱位置已确定").formatted(Formatting.RED), false);
+                                ChestData.setSpawnChest(((IChestData) serverPlayer), true);
+                                return 0;
+                            }
+                            case 4 -> {
+                                world.setBlockState(new BlockPos(i, j, k), ModBlock.D_CHEST.getDefaultState());
+                                DChestEntity blockEntity = (DChestEntity) world.getBlockEntity(new BlockPos(i, j, k));
+                                assert blockEntity != null;
+                                blockEntity.setOwner(player.getUuidAsString());
+                                ChestData.writePlayerNbt(((IChestData) serverPlayer), i, j, k);
+                                serverPlayer.sendMessage(new LiteralText("最新的宝箱位置已确定").formatted(Formatting.RED), false);
+                                ChestData.setSpawnChest(((IChestData) serverPlayer), true);
+                                return 0;
+                            }
+                            case 5 -> {
+                                world.setBlockState(new BlockPos(i, j, k), ModBlock.E_CHEST.getDefaultState());
+                                EChestEntity blockEntity = (EChestEntity) world.getBlockEntity(new BlockPos(i, j, k));
+                                assert blockEntity != null;
+                                blockEntity.setOwner(player.getUuidAsString());
+                                ChestData.writePlayerNbt(((IChestData) serverPlayer), i, j, k);
+                                serverPlayer.sendMessage(new LiteralText("最新的宝箱位置已确定").formatted(Formatting.RED), false);
+                                ChestData.setSpawnChest(((IChestData) serverPlayer), true);
+                                return 0;
+                            }
+                        }
                         return 0;
                     }
                 }
@@ -88,6 +136,11 @@ public class ChestFoundCommand {
         }
         return 0;
     }
+
+    private static void setChest(Block block, World world, ServerPlayerEntity serverPlayer, PlayerEntity player, int i, int j, int k) {
+
+    }
+
 }
 
 

@@ -1,8 +1,8 @@
-package com.kcn.blocks.chest;
+package com.kcn.blocks.open_chest;
 
 import com.kcn.blocks.entities.ModBlockEntity;
-import com.kcn.blocks.entities.chest.AChestEntity;
-import com.kcn.blocks.entities.chest.EChestEntity;
+import com.kcn.blocks.entities.open_chest.AOpenChestEntity;
+import com.kcn.blocks.entities.open_chest.COpenChestEntity;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
@@ -12,9 +12,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.text.LiteralText;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
@@ -22,22 +20,21 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class EChest extends BlockWithEntity {
-
-    public EChest(Settings settings) {
+public class COpenChest extends BlockWithEntity {
+    public COpenChest(Settings settings) {
         super(settings);
     }
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntity.E_CHEST_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> EChestEntity.tick(blockEntity, world1, pos));
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new COpenChestEntity(pos, state);
     }
 
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new EChestEntity(pos, state);
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return checkType(type, ModBlockEntity.C_OPEN_CHEST_ENTITY, (world1, pos, state1, blockEntity) -> COpenChestEntity.tick(blockEntity, world1, pos));
     }
 
     @Override
@@ -74,12 +71,8 @@ public class EChest extends BlockWithEntity {
             return ActionResult.SUCCESS;
         }
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof EChestEntity aChestEntity) {
-            if (player.getUuidAsString().equals(aChestEntity.getOwner())) {
-                player.openHandledScreen(aChestEntity);
-            } else {
-                player.sendMessage(new LiteralText("这个箱子不属于你").formatted(Formatting.DARK_RED).formatted(Formatting.BOLD), true);
-            }
+        if (blockEntity instanceof COpenChestEntity) {
+            player.openHandledScreen((COpenChestEntity) blockEntity);
         }
         return ActionResult.CONSUME;
     }

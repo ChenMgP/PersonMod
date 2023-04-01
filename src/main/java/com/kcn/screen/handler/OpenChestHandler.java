@@ -8,22 +8,46 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-public class AChestScreenHandler extends ScreenHandler {
-
+public class OpenChestHandler extends ScreenHandler {
     public Inventory inventory;
 
-    public AChestScreenHandler(int syncId, PlayerInventory inventory) {
-        this(syncId, inventory, new SimpleInventory(1));
+
+    public OpenChestHandler(int synId, PlayerInventory playerInventory) {
+        this(synId, playerInventory, new SimpleInventory(5));
     }
 
-    public AChestScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
-        super(ModScreenHandler.A_CHEST_SCREEN_HANDLER, syncId);
+    public OpenChestHandler(int synId, PlayerInventory playerInventory, Inventory inventory) {
+        super(ModScreenHandler.OPEN_CHEST_HANDLER, synId);
         this.inventory = inventory;
-        checkSize(inventory, 1);
-        this.addSlot(new Slot(this.inventory, 0, 77, 29) {
+        checkSize(inventory, 5);
+        this.addSlot(new Slot(this.inventory, 0, 28, 18) {
             @Override
             public boolean canInsert(ItemStack stack) {
-                return true;
+                return false;
+            }
+        });
+        this.addSlot(new Slot(this.inventory, 1, 46, 48) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return false;
+            }
+        });
+        this.addSlot(new Slot(this.inventory, 2, 131, 50) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return false;
+            }
+        });
+        this.addSlot(new Slot(this.inventory, 3, 115, 14) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return false;
+            }
+        });
+        this.addSlot(new Slot(this.inventory, 4, 77, 29) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return false;
             }
         });
         int i;
@@ -35,6 +59,11 @@ public class AChestScreenHandler extends ScreenHandler {
         for (i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
+    }
+
+    @Override
+    public boolean canUse(PlayerEntity player) {
+        return true;
     }
 
     @Override
@@ -62,8 +91,4 @@ public class AChestScreenHandler extends ScreenHandler {
         return newStack;
     }
 
-    @Override
-    public boolean canUse(PlayerEntity player) {
-        return true;
-    }
 }

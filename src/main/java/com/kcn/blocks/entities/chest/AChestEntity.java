@@ -1,34 +1,49 @@
 package com.kcn.blocks.entities.chest;
 
+import com.kcn.blocks.ModBlock;
 import com.kcn.blocks.entities.ModBlockEntity;
-import com.kcn.screen.handler.AChestScreenHandler;
+import com.kcn.items.ModItem;
+import com.kcn.screen.handler.ChestScreenHandler;
+import com.kcn.util.ChestData;
+import com.kcn.util.IChestData;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.text.LiteralText;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
+import java.util.UUID;
 
 public class AChestEntity extends LootableContainerBlockEntity {
 
-    private String owner;
     private DefaultedList<ItemStack> inv = DefaultedList.ofSize(1, ItemStack.EMPTY);
+    private String owner;
 
-    public AChestEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntity.A_CHEST_BLOCK_ENTITY, pos, state);
+    public static void tick(AChestEntity entity, World world, BlockPos pos) {
+        if (entity.inv.get(0).getItem() == ModItem.A_CHEST_KEY) {
+            entity.inv.set(0, new ItemStack(Items.AIR));
+            world.setBlockState(pos, ModBlock.A_OPEN_CHEST.getDefaultState());
+            PlayerEntity player = world.getPlayerByUuid(UUID.fromString(entity.owner));
+            if (!world.isClient()) {
+                ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
+                assert serverPlayer != null;
+                ChestData.setSpawnChest(((IChestData) serverPlayer), false);
+            }
+        }
     }
 
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
+    public AChestEntity(BlockPos blockPos, BlockState blockState) {
+        super(ModBlockEntity.A_CHEST_BLOCK_ENTITY, blockPos, blockState);
     }
 
     @Override
@@ -43,12 +58,20 @@ public class AChestEntity extends LootableContainerBlockEntity {
 
     @Override
     protected Text getContainerName() {
-        return new LiteralText("");
+        return new TranslatableText("");
     }
 
     @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-        return new AChestScreenHandler(syncId, playerInventory);
+        return new ChestScreenHandler(syncId, playerInventory, this);
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     @Override
@@ -57,16 +80,16 @@ public class AChestEntity extends LootableContainerBlockEntity {
     }
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
-        Inventories.readNbt(nbt, inv);
-        owner = nbt.getString("owner");
-    }
-
-    @Override
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         Inventories.writeNbt(nbt, inv);
         nbt.putString("owner", owner);
+    }
+
+    @Override
+    public void readNbt(NbtCompound nbt) {
+        super.readNbt(nbt);
+        Inventories.readNbt(nbt, inv);
+        owner = nbt.getString("owner");
     }
 }

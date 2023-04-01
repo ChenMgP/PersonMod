@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class ModItem {
@@ -48,7 +49,12 @@ public class ModItem {
     public static final Item CRAFTING_CISTERN_SCROLL = ModItem.register("crafting_cistern_scroll", new CraftingCisternScroll(new Item.Settings().group(Group.WATER_GROUP).maxCount(1)));
     public static final Item DELETE_SCROLL = ModItem.register("delete_scroll", new Item(new Item.Settings().group(Group.WATER_GROUP)));
     public static final Item BAG = ModItem.register("bag", new BagItem(new Item.Settings().group(Group.WATER_GROUP).maxCount(1)));
-
+    public static final Item A_CHEST_KEY = ModItem.register("a_chest_key", new Item(new Item.Settings().group(Group.WATER_GROUP).maxCount(1)));
+    public static final Item B_CHEST_KEY = ModItem.register("b_chest_key", new Item(new Item.Settings().group(Group.WATER_GROUP).maxCount(1)));
+    public static final Item C_CHEST_KEY = ModItem.register("c_chest_key", new Item(new Item.Settings().group(Group.WATER_GROUP).maxCount(1)));
+    public static final Item D_CHEST_KEY = ModItem.register("d_chest_key", new Item(new Item.Settings().group(Group.WATER_GROUP).maxCount(1)));
+    public static final Item E_CHEST_KEY = ModItem.register("e_chest_key", new Item(new Item.Settings().group(Group.WATER_GROUP).maxCount(1)));
+    public static final Item MAGIC_DUST = ModItem.register("magic_dust", new Item(new Item.Settings().group(Group.WATER_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
     public static void item() {
     }
 

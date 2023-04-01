@@ -1,6 +1,6 @@
 package com.kcn.screen;
 
-import com.kcn.screen.handler.AChestScreenHandler;
+import com.kcn.screen.handler.ChestScreenHandler;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
@@ -9,11 +9,11 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class AChestScreen extends HandledScreen<AChestScreenHandler> {
+public class ChestScreen extends HandledScreen<ChestScreenHandler> {
 
     private static final Identifier TEXTURE = new Identifier("kcn", "textures/gui/a_chest.png");
 
-    public AChestScreen(AChestScreenHandler handler, PlayerInventory inventory, Text title) {
+    public ChestScreen(ChestScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
         this.passEvents = false;
         this.backgroundHeight = 167;
